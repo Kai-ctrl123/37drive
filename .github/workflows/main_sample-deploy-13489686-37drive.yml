@@ -14,7 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read #This is required for actions/checkout
-
+    defaults:
+       run:
+         working-directory: ./37drive
     steps:
       - uses: actions/checkout@v4
 
@@ -62,4 +64,5 @@ jobs:
           app-name: 'sample-deploy-13489686-37drive'
           slot-name: 'Production'
           package: .
+
           
