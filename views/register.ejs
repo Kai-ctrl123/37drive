@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            background-color: white;
+        }
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 3px;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .login-link {
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Account</h1>
+        <form action="/register" method="POST">
+            <input type="text" id="username" name="username" placeholder="username" required><br>
+            
+            <input type="password" id="password" name="password" placeholder="password" required><br>
+            
+            <button type="submit">Register</button>
+        </form>
+        <div id="successMessage" style="display:none; color: green;">Registered successfully!</div>
+        <div class="login-link">
+            <p>Already have an account?</p>
+            <p><a href="/login">Login here</a></p>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<style>
+body {
+    background-image: url("/images/white.jpeg");
+    background-blend-mode: overlay;
+    font-family: Broadway, sans-serif;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 10px;
+}
+.btn:hover {
+    background: #0056b3;
+}
+
+.green {
+    background: #28a745;
+}
+.green:hover {
+    background: #1e7e34;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+ul li {
+    margin: 6px 0;
+}
+</style>
+
+</head>
+<body>
+
+<h1>
+    <span>
+        Keep Your "Secret" Here
+    </span>
+</h1>
+
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+   
+    <label class="btn green">
+        Browse
+        <input id= "fileInput" type="file" name="file">
+    </label>
+    <span id="fileName" style="margin-left:10px; font-weight:bold; color:black;">
+    No file selected
+    </span>
+
+    <script>
+    document.getElementById("fileInput").addEventListener("change", function() {
+    const fileName = this.files.length > 0 ? this.files[0].name : "No file selected";
+    document.getElementById("fileName").textContent = fileName;
+    });
+    </script>
+    
+    <button type="submit" class="btn green">
+        Upload
+    </button>
+
+</form>
+
+
+<ul>
+<% files.forEach(f => { %>
+    <li>
+        <a href="/download/<%= f._id %>"><%= f.filename %></a> —
+        <%= (f.size / 1024).toFixed(1) %> KB |
+        <a href="/delete/<%= f._id %>" onclick="return confirm('Sure?');">
+            Delete
+            <img style="width:20px;"
+                src="/images/trashcan.png">
+        </a>
+    </li>
+<% }) %>
+</ul>
+
+
+<a class="btn" href="/logout">Logout</a>
+
+</body>
+</html>

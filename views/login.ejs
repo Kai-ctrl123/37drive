@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            background-color: white;
+        }
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 3px;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .register-link {
+            margin-top: 15px;
+            text-align: center;
+        }
+        #errorMessage {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="username" />
+            <input name="password" type="password" placeholder="password" />
+            <button type="submit">Login</button>
+        </form>
+        <div id="loginMessage" style="display:none; color: green;">Login successful!</div>
+        <div id="errorMessage">Invalid username or password!</div>
+        <div class="register-link">
+            <p>Don't have an account?</p>
+            <p><a href="/register">Register here</a></p>
+        </div>
+    </div>
+</body>
+</html>
